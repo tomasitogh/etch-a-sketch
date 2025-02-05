@@ -1,4 +1,4 @@
-const container = document.querySelector("#container");
+const container = document.querySelector("#grid-container");
 const inpt = document.querySelector("#input");
 const btn = document.querySelector("#input-button");
 
@@ -6,13 +6,17 @@ const btn = document.querySelector("#input-button");
 btn.addEventListener("click", () => {
     const currentValue = inpt.value;
     inpt.value = '';
+    createGrid(currentValue);
 });
 
 
 //Function that receives de amount of grids inserted by  user 
 // and creates and inserts the div grids
 function createGrid(number){
-    const grids = document.createElement("div");
-    container.appendChild(grids);
+    for (i = 1; i <= number * number; i++){
+        const grids = document.createElement("div");
+        grids.classList.add("grid-squares");
+        container.appendChild(grids);
+    };
+};
 
-}
